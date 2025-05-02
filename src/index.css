@@ -4,9 +4,27 @@
     --background-color-3: #1b3e39;
     --background-color-4: #ff7653;
     --background-color-5: rgb(145, 137, 137);
+    --background-color-6: #c5baba;
     --text-color-1: #605f63;
 }
 
+.playfair-display-1 {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .inter-1 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: light;
+  }
+
 body {
     background-color: var(--background-color-1);
+    display: flex;
+    justify-content: center;
+    font-family: inter, sans-serif;
 }

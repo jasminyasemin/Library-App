@@ -1,12 +1,16 @@
 import React from 'react';
-import '../styles/Card.css';
+import '../styles/BookCard.css';
 
-const BookCard = ({ title, author, img }) => {
+const BookCard = ({ title, author, img, coverOnly = false }) => {
   return (
-    <div className="card">
-      <img src={`/images/${img}`} alt={title} className="card-image" />
-      <h3 className="card-title">{title}</h3>
-      <p className="card-subtitle">{author}</p>
+    <div className={`book-card ${coverOnly ? 'cover-only' : ''}`}>
+      <img src={`/images/${img}`} alt={title} />
+      {!coverOnly && (
+        <div className="book-info">
+          <h3>{title}</h3>
+          <p>{author}</p>
+        </div>
+      )}
     </div>
   );
 };
