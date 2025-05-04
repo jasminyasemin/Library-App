@@ -1,9 +1,9 @@
 .layout {
-    display: flex;
-  }
-  
-  .content {
-    margin-left: 220px; /* Sidebar genişliği kadar */
-    padding: 2rem;
-    width: 100%;
-  }
+  display: flex;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 2rem;
+  width: 100%;
+}

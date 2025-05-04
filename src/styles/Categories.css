@@ -1,0 +1,46 @@
+.page-container {
+  background-color: var(--background-color-2);
+  height: 100vh;
+  width: 130vh;
+  margin-left: -26.466vh;
+  margin-top: -1.4vh;
+  display: flex;
+  flex-direction: column;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.category-container {
+    text-align: center;
+}
+
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-left: 20vh;
+    margin-top: 4vh;
+}
+
+
+.edit-btn {
+    margin: 0px 6px;
+    background-color: var(--background-color-3);
+    border: none;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: var(--background-color-4);
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+    box-shadow: 1px 1px 10px var(--background-color-5);
+  }

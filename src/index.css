@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500&display=swap');
+
 :root {
     --background-color-1: #f0efe9;
     --background-color-2: #eae6d7;
@@ -6,6 +8,14 @@
     --background-color-5: rgb(145, 137, 137);
     --background-color-6: #c5baba;
     --text-color-1: #605f63;
+}
+
+body {
+  background-color: var(--background-color-1);
+  display: flex;
+  justify-content: center;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 400 !important;
 }
 
 .playfair-display-1 {
@@ -19,12 +29,6 @@
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
-    font-style: light;
   }
 
-body {
-    background-color: var(--background-color-1);
-    display: flex;
-    justify-content: center;
-    font-family: inter, sans-serif;
-}
+ 
