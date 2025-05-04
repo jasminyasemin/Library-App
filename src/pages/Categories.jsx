@@ -81,7 +81,7 @@ const Categories = () => {
         isEditing={isEditing}
       />
 
-      <ul>
+      <ul className="ul-1">
         {categories.map((cat) => (
           <li key={cat.id}>
             <strong>{cat.name}</strong> — {cat.description}

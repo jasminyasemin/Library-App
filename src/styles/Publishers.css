@@ -1,3 +1,25 @@
 .publisher-container {
     text-align: center;
 }
+
+.p-form {
+    display: flex;
+    width: 950px;
+    height: 50px;
+    margin-left: 15vh;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 1px 1px 10px var(--background-color-5);
+}
+
+.ul-2 {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-left: 20vh;
+    margin-top: 4vh;
+}

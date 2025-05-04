@@ -11,7 +11,11 @@ import "../styles/Publishers.css";
 
 const Publishers = () => {
   const [publishers, setPublishers] = useState([]);
-  const [form, setForm] = useState({ name: "", address: "" });
+  const [form, setForm] = useState({
+    name: "",
+    establishmentYear: "",
+    address: "",
+  });
   const [isEditing, setIsEditing] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
@@ -31,20 +35,29 @@ const Publishers = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.address) {
+    const { name, establishmentYear, address } = form;
+
+    if (!name || !establishmentYear || !address) {
       toast.warning("Lütfen tüm alanları doldurun.");
       return;
     }
 
     try {
+      const dataToSend = {
+        name: name.trim(),
+        address: address.trim(),
+        establishmentYear: parseInt(establishmentYear),
+      };
+
       if (isEditing) {
-        await updatePublisher(selectedId, form);
+        await updatePublisher(selectedId, dataToSend);
         toast.success("Yayımcı güncellendi.");
       } else {
-        await createPublisher(form);
+        await createPublisher(dataToSend);
         toast.success("Yayımcı eklendi.");
       }
-      setForm({ name: "", address: "" });
+
+      setForm({ name: "", establishmentYear: "", address: "" });
       setIsEditing(false);
       fetchPublishers();
     } catch {
@@ -53,7 +66,11 @@ const Publishers = () => {
   };
 
   const handleEdit = (publisher) => {
-    setForm({ name: publisher.name, address: publisher.address });
+    setForm({
+      name: publisher.name || "",
+      establishmentYear: publisher.establishmentYear?.toString() || "",
+      address: publisher.address || "",
+    });
     setSelectedId(publisher.id);
     setIsEditing(true);
   };
@@ -73,13 +90,22 @@ const Publishers = () => {
       <div className="publisher-container">
         <h2 className="playfair-display-1">Publishers</h2>
 
-        <form className="c-form" onSubmit={handleSubmit}>
+        <form className="p-form" onSubmit={handleSubmit}>
           <input
             type="text"
             className="form-input"
             placeholder="Publisher Name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+          <input
+            type="number"
+            className="form-input"
+            placeholder="Establishment Year"
+            value={form.establishmentYear}
+            onChange={(e) =>
+              setForm({ ...form, establishmentYear: e.target.value })
+            }
           />
           <input
             type="text"
@@ -93,12 +119,16 @@ const Publishers = () => {
           </button>
         </form>
 
-        <ul>
+        <ul className="ul-2">
           {publishers.map((p) => (
             <li key={p.id}>
-              <strong>{p.name}</strong> — {p.address}
-              <button className="edit-btn" onClick={() => handleEdit(p)}>Düzenle</button>
-              <button className="edit-btn" onClick={() => handleDelete(p.id)}>Sil</button>
+              <strong>{p.name}</strong> — {p.establishmentYear}, {p.address}
+              <button className="edit-btn" onClick={() => handleEdit(p)}>
+                Düzenle
+              </button>
+              <button className="edit-btn" onClick={() => handleDelete(p.id)}>
+                Sil
+              </button>
             </li>
           ))}
         </ul>
