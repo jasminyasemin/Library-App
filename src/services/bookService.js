@@ -1,8 +1,8 @@
 import axios from "./api";
 
-const endpoint = "/books";
+const Books = "/books";
 
-export const getAllBooks = () => axios.get(endpoint);
-export const createBook = (data) => axios.post(endpoint, data);
-export const updateBook = (id, data) => axios.put(`${endpoint}/${id}`, data);
-export const deleteBook = (id) => axios.delete(`${endpoint}/${id}`);
+export const getAllBooks = () => axios.get(Books);
+export const createBook = (data) => axios.post(Books, data);
+export const updateBook = (id, data) => axios.put(`${Books}/${id}`, data);
+export const deleteBook = (id) => axios.delete(`${Books}/${id}`);

@@ -4,20 +4,91 @@
 
 .b-form {
     display: flex;
-    width: 1000px;
-    height: 50px;
-    margin-left: 20vh;
+    gap: 8px; 
+    width: 800px;
+    height: 120px;
+    margin-left: 24vh;
+    padding: 5px;
     background: white;
     border-radius: 10px;
-    overflow: hidden;
+    box-shadow: 1px 1px 10px var(--background-color-5);
+    flex-wrap: wrap;
+}
+
+.b-form input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: left;
+    color: rgb(114, 113, 113);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    color: rgb(68, 68, 68);
+}
+
+.book-btn1 {
+    background-color: var(--background-color-3);
     border: none;
+    height: 35px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 2vh;
+    margin-top: -2vh;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+}
+
+.book-btn {
+    background-color: var(--background-color-3);
+    border: none;
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+    margin-left: 2vh;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+}
+
+.book-btn1:hover {
+    background-color: var(--background-color-4);
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
     box-shadow: 1px 1px 10px var(--background-color-5);
 }
 
-.b-input {
-    padding: 1px;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    text-align: center;
+.book-btn:hover {
+    background-color: var(--background-color-4);
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+    box-shadow: 1px 1px 10px var(--background-color-5);
 }
+
+.ul-3 {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: flex-start;
+    margin-left: 20vh;
+}
+
+.ul-3 li {
+    padding: 7px;
+}
+
+
+

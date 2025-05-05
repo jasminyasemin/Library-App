@@ -8,7 +8,7 @@ import {
 import Form from "../components/Form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import '../styles/Categories.css';
+import "../styles/Categories.css";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -32,24 +32,26 @@ const Categories = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!form.name || !form.description) {
-      toast.warning("Please fill in all fields.");
+      toast.warning("Lütfen tüm alanları doldurun.");
       return;
     }
 
     try {
       if (isEditing) {
         await updateCategory(selectedId, form);
-        toast.success("Category updated.");
+        toast.success("Kategori güncellendi.");
       } else {
         await createCategory(form);
-        toast.success("Category added.");
+        toast.success("Kategori eklendi.");
       }
       setForm({ name: "", description: "" });
       setIsEditing(false);
       fetchCategories();
-    } catch {
-      toast.error("An error has occurred.");
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || "Bir hata oluştu.";
+      toast.error(errorMessage);
     }
   };
 
@@ -62,36 +64,41 @@ const Categories = () => {
   const handleDelete = async (id) => {
     try {
       await deleteCategory(id);
-      toast.success("Category deleted.");
+      toast.success("Kategori silindi.");
       fetchCategories();
-    } catch {
-      toast.error("Deletion failed.");
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || "Silme işlemi başarısız.";
+      toast.error(errorMessage);
     }
   };
 
   return (
     <div className="page-container">
       <div className="category-container">
-      <h2 className="playfair-display-1">Categories</h2>
+        <h2 className="playfair-display-1">Categories</h2>
 
-      <Form
-        form={form}
-        setForm={setForm}
-        handleSubmit={handleSubmit}
-        isEditing={isEditing}
-      />
+        <Form
+          form={form}
+          setForm={setForm}
+          handleSubmit={handleSubmit}
+          isEditing={isEditing}
+        />
 
-      <ul className="ul-1">
-        {categories.map((cat) => (
-          <li key={cat.id}>
-            <strong>{cat.name}</strong> — {cat.description}
-            <button className="edit-btn" onClick={() => handleEdit(cat)}>Edit</button>
-            <button className="edit-btn" onClick={() => handleDelete(cat.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+        <ul className="ul-1">
+          {categories.map((cat) => (
+            <li key={cat.id}>
+              <strong>{cat.name}</strong> — {cat.description}
+              <button className="edit-btn" onClick={() => handleEdit(cat)}>
+                Edit
+              </button>
+              <button className="edit-btn" onClick={() => handleDelete(cat.id)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
 
-      <ToastContainer position="bottom-right" />
+        <ToastContainer position="bottom-right" />
       </div>
     </div>
   );
