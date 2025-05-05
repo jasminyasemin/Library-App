@@ -132,7 +132,7 @@ const Publishers = () => {
         <ul className="ul-2">
           {publishers.map((p) => (
             <li key={p.id}>
-              <strong>{p.name}</strong> — {p.establishmentYear}, {p.address}
+              <strong>{p.name}</strong> — {p.establishmentYear}, {p.address} {/* p.address görünmüyor çünkü API yanıtında bu alan yok */}
               <button className="edit-btn" onClick={() => handleEdit(p)}>
                 Düzenle
               </button>
