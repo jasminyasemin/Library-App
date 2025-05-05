@@ -36,19 +36,19 @@ const Publishers = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, establishmentYear, address } = form;
-
+  
     if (!name || !establishmentYear || !address) {
       toast.warning("Lütfen tüm alanları doldurun.");
       return;
     }
-
+  
     try {
       const dataToSend = {
         name: name.trim(),
-        address: address.trim(),
+        address: address.trim() || "Adres belirtilmedi", // garantiye almak için
         establishmentYear: parseInt(establishmentYear),
       };
-
+  
       if (isEditing) {
         await updatePublisher(selectedId, dataToSend);
         toast.success("Yayımcı güncellendi.");
@@ -56,11 +56,12 @@ const Publishers = () => {
         await createPublisher(dataToSend);
         toast.success("Yayımcı eklendi.");
       }
-
+  
       setForm({ name: "", establishmentYear: "", address: "" });
       setIsEditing(false);
       fetchPublishers();
-    } catch {
+    } catch (err) {
+      console.error("Submit hatası:", err);
       toast.error("Bir hata oluştu.");
     }
   };
@@ -91,33 +92,42 @@ const Publishers = () => {
         <h2 className="playfair-display-1">Publishers</h2>
 
         <form className="p-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Publisher Name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-          />
-          <input
-            type="number"
-            className="form-input"
-            placeholder="Establishment Year"
-            value={form.establishmentYear}
-            onChange={(e) =>
-              setForm({ ...form, establishmentYear: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Address"
-            value={form.address}
-            onChange={(e) => setForm({ ...form, address: e.target.value })}
-          />
-          <button className="form-btn" type="submit">
-            {isEditing ? "Güncelle" : "Ekle"}
-          </button>
-        </form>
+  <input
+    id="publisher-name"
+    name="name"
+    type="text"
+    className="form-input"
+    placeholder="Publisher Name"
+    value={form.name}
+    onChange={(e) => setForm({ ...form, name: e.target.value })}
+  />
+
+  <input
+    id="publisher-year"
+    name="establishmentYear"
+    type="number"
+    className="form-input"
+    placeholder="Establishment Year"
+    value={form.establishmentYear}
+    onChange={(e) =>
+      setForm({ ...form, establishmentYear: e.target.value })
+    }
+  />
+
+  <input
+    id="publisher-address"
+    name="address"
+    type="text"
+    className="form-input"
+    placeholder="Address"
+    value={form.address}
+    onChange={(e) => setForm({ ...form, address: e.target.value })}
+  />
+  
+  <button className="form-btn" type="submit">
+    {isEditing ? "Güncelle" : "Ekle"}
+  </button>
+</form>
 
         <ul className="ul-2">
           {publishers.map((p) => (
