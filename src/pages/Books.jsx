@@ -40,7 +40,7 @@ const Books = () => {
       const res = await getAllBooks();
       setBooks(res.data);
     } catch {
-      toast.error("Kitaplar alınamadı.");
+      toast.error("The books could not be taken.");
     }
   };
 
@@ -64,7 +64,7 @@ const Books = () => {
     const { name, publicationYear, stock, authorId, publisherId, categoryIds } = form;
 
     if (!name || !publicationYear || !stock || !authorId || !publisherId || categoryIds.length === 0) {
-      toast.warning("Lütfen tüm alanları doldurun.");
+      toast.warning("Please fill in all fields.");
       return;
     }
 
@@ -80,16 +80,16 @@ const Books = () => {
     try {
       if (isEditing) {
         await updateBook(selectedId, dataToSend);
-        toast.success("Kitap güncellendi.");
+        toast.success("The book has been updated.");
       } else {
         await createBook(dataToSend);
-        toast.success("Kitap eklendi.");
+        toast.success("Book added.");
       }
       setForm({ name: "", publicationYear: "", stock: "", authorId: "", publisherId: "", categoryIds: [] });
       setIsEditing(false);
       fetchBooks();
     } catch {
-      toast.error("Bir hata oluştu.");
+      toast.error("An error has occurred.");
     }
   };
 
@@ -109,10 +109,10 @@ const Books = () => {
   const handleDelete = async (id) => {
     try {
       await deleteBook(id);
-      toast.success("Kitap silindi.");
+      toast.success("The book has been deleted.");
       fetchBooks();
     } catch {
-      toast.error("Silme işlemi başarısız.");
+      toast.error("Deletion failed.");
     }
   };
 
@@ -159,7 +159,7 @@ const Books = () => {
             ))}
           </div>
 
-          <button className="book-btn1" type="submit">{isEditing ? "Güncelle" : "Ekle"}</button>
+          <button className="book-btn1" type="submit">{isEditing ? "Update" : "Add"}</button>
         </form>
 
         <ul className="ul-3">
@@ -167,8 +167,8 @@ const Books = () => {
             <li key={b.id}>
               <strong>{b.name}</strong> - {b.publicationYear} ({b.stock}) - {b.author.name}, {b.publisher.name}
               <br />Kategoriler: {b.categories.map((c) => c.name).join(", ")}
-              <button className="book-btn" onClick={() => handleEdit(b)}>Düzenle</button>
-              <button className="book-btn" onClick={() => handleDelete(b.id)}>Sil</button>
+              <button className="book-btn" onClick={() => handleEdit(b)}>Edit</button>
+              <button className="book-btn" onClick={() => handleDelete(b.id)}>Delete</button>
             </li>
           ))}
         </ul>

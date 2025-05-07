@@ -1,0 +1,62 @@
+.rental-container {
+    text-align: center;
+}
+
+.rental-form {
+    display: flex;
+    gap: 8px; 
+    width: 1000px;
+    height: 40px;
+    margin-left: 15vh;
+    padding: 4px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px var(--background-color-5);
+    flex-wrap: wrap;
+}
+
+.rental-form input {
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: left;
+    color: rgb(107, 107, 107);
+}
+
+.r-btn {
+    background-color: var(--background-color-3);
+    border: none;
+    height: 35px;
+    width: 95px;
+    margin-top: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+}
+
+.r-btn1 {
+    background-color: var(--background-color-3);
+    border: none;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    margin: 2px;
+}
+
+.ul-4 {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: flex-start;
+    margin-left: 12vh;
+    gap: 1vh;
+}
+
+.ul-4 li {
+    padding: 7px;
+}

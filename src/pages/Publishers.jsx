@@ -25,7 +25,7 @@ const Publishers = () => {
       setPublishers(res.data);
     } catch (err) {
       console.error(err);
-      toast.error("Yayımcılar alınamadı.");
+      toast.error("Publishers could not be retrieved.");
     }
   };
 
@@ -38,23 +38,23 @@ const Publishers = () => {
     const { name, establishmentYear, address } = form;
   
     if (!name || !establishmentYear || !address) {
-      toast.warning("Lütfen tüm alanları doldurun.");
+      toast.warning("Please fill in all fields.");
       return;
     }
   
     try {
       const dataToSend = {
         name: name.trim(),
-        address: address.trim() || "Adres belirtilmedi", // garantiye almak için
+        address: address.trim() || "Address not specified", 
         establishmentYear: parseInt(establishmentYear),
       };
   
       if (isEditing) {
         await updatePublisher(selectedId, dataToSend);
-        toast.success("Yayımcı güncellendi.");
+        toast.success("Publisher updated.");
       } else {
         await createPublisher(dataToSend);
-        toast.success("Yayımcı eklendi.");
+        toast.success("Publisher added.");
       }
   
       setForm({ name: "", establishmentYear: "", address: "" });
@@ -62,7 +62,7 @@ const Publishers = () => {
       fetchPublishers();
     } catch (err) {
       console.error("Submit hatası:", err);
-      toast.error("Bir hata oluştu.");
+      toast.error("An error has occurred.");
     }
   };
 
@@ -79,10 +79,10 @@ const Publishers = () => {
   const handleDelete = async (id) => {
     try {
       await deletePublisher(id);
-      toast.success("Yayımcı silindi.");
+      toast.success("The publisher was deleted.");
       fetchPublishers();
     } catch {
-      toast.error("Silme işlemi başarısız.");
+      toast.error("Deletion failed.");
     }
   };
 
@@ -125,7 +125,7 @@ const Publishers = () => {
   />
   
   <button className="form-btn" type="submit">
-    {isEditing ? "Güncelle" : "Ekle"}
+    {isEditing ? "Update" : "Add"}
   </button>
 </form>
 
@@ -134,10 +134,10 @@ const Publishers = () => {
             <li key={p.id}>
               <strong>{p.name}</strong> — {p.establishmentYear}, {p.address} {/* p.address görünmüyor çünkü API yanıtında bu alan yok */}
               <button className="edit-btn" onClick={() => handleEdit(p)}>
-                Düzenle
+                Edit
               </button>
               <button className="edit-btn" onClick={() => handleDelete(p.id)}>
-                Sil
+                Delete
               </button>
             </li>
           ))}

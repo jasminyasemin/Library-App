@@ -22,7 +22,7 @@ const Categories = () => {
       setCategories(res.data);
     } catch (err) {
       console.error(err);
-      toast.error("Kategoriler alınamadı.");
+      toast.error("Categories could not be retrieved.");
     }
   };
 
@@ -34,23 +34,23 @@ const Categories = () => {
     e.preventDefault();
 
     if (!form.name || !form.description) {
-      toast.warning("Lütfen tüm alanları doldurun.");
+      toast.warning("Please fill in all fields.");
       return;
     }
 
     try {
       if (isEditing) {
         await updateCategory(selectedId, form);
-        toast.success("Kategori güncellendi.");
+        toast.success("Category updated.");
       } else {
         await createCategory(form);
-        toast.success("Kategori eklendi.");
+        toast.success("Category added.");
       }
       setForm({ name: "", description: "" });
       setIsEditing(false);
       fetchCategories();
     } catch (err) {
-      const errorMessage = err.response?.data?.message || "Bir hata oluştu.";
+      const errorMessage = err.response?.data?.message || "An error has occurred.";
       toast.error(errorMessage);
     }
   };
@@ -64,10 +64,10 @@ const Categories = () => {
   const handleDelete = async (id) => {
     try {
       await deleteCategory(id);
-      toast.success("Kategori silindi.");
+      toast.success("The category has been deleted.");
       fetchCategories();
     } catch (err) {
-      const errorMessage = err.response?.data?.message || "Silme işlemi başarısız.";
+      const errorMessage = err.response?.data?.message || "Deletion failed.";
       toast.error(errorMessage);
     }
   };

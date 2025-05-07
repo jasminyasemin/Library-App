@@ -33,11 +33,6 @@ const Navbar = () => {
           <span className="nav-text">Rent</span>
         </NavLink>
 
-        <NavLink to="/favs" className="nav-link">
-          <lord-icon class="nav-icon" src="https://cdn.lordicon.com/xyboiuok.json" trigger="morph" colors="primary:#ffffff" style={{ width: '30px', height: '30px' }} />
-          <span className="nav-text">Favorites</span>
-        </NavLink>
-
         <NavLink to="/authors" className="nav-link">
           <lord-icon class="nav-icon" src="https://cdn.lordicon.com/kthelypq.json" trigger="morph" colors="primary:#ffffff" style={{ width: '30px', height: '30px' }} />
           <span className="nav-text">Authors</span>
@@ -47,6 +42,11 @@ const Navbar = () => {
           <lord-icon class="nav-icon" src="https://cdn.lordicon.com/ijahpotn.json" trigger="morph" colors="primary:#ffffff" style={{ width: '30px', height: '30px' }} />
           <span className="nav-text">Publishers</span>
         </NavLink>
+
+        <NavLink to="/favs" className="nav-link">
+          <lord-icon class="nav-icon" src="https://cdn.lordicon.com/xyboiuok.json" trigger="morph" colors="primary:#ffffff" style={{ width: '30px', height: '30px' }} />
+          <span className="nav-text">Favorites</span>
+        </NavLink> 
 
         <div className='line'></div>
 

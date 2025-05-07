@@ -25,7 +25,7 @@ const Authors = () => {
       setAuthors(res.data);
     } catch (err) {
       console.error(err);
-      toast.error("Yazarlar alınamadı.");
+      toast.error("The authors could not be retrieved.");
     }
   };
 
@@ -36,23 +36,23 @@ const Authors = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.birthDate || !form.country) {
-      toast.warning("Lütfen tüm alanları doldurun.");
+      toast.warning("Please fill in all fields.");
       return;
     }
 
     try {
       if (isEditing) {
         await updateAuthor(selectedId, form);
-        toast.success("Yazar güncellendi.");
+        toast.success("Author updated.");
       } else {
         await createAuthor(form);
-        toast.success("Yazar eklendi.");
+        toast.success("Author added.");
       }
       setForm({ name: "", birthDate: "", country: "" });
       setIsEditing(false);
       fetchAuthors();
     } catch {
-      toast.error("Bir hata oluştu.");
+      toast.error("An error has occurred.");
     }
   };
 
@@ -69,10 +69,10 @@ const Authors = () => {
   const handleDelete = async (id) => {
     try {
       await deleteAuthor(id);
-      toast.success("Yazar silindi.");
+      toast.success("The author has been deleted.");
       fetchAuthors();
     } catch {
-      toast.error("Silme işlemi başarısız.");
+      toast.error("Deletion failed.");
     }
   };
 
@@ -104,7 +104,7 @@ const Authors = () => {
             onChange={(e) => setForm({ ...form, country: e.target.value })}
           />
           <button className="form-btn" type="submit">
-            {isEditing ? "Güncelle" : "Ekle"}
+            {isEditing ? "Update" : "Add"}
           </button>
         </form>
 
@@ -113,10 +113,10 @@ const Authors = () => {
             <li key={a.id}>
               <strong>{a.name}</strong> — {a.birthDate}, {a.country}
               <button className="edit-btn" onClick={() => handleEdit(a)}>
-                Düzenle
+                Edit
               </button>
               <button className="edit-btn" onClick={() => handleDelete(a.id)}>
-                Sil
+                Delete
               </button>
             </li>
           ))}

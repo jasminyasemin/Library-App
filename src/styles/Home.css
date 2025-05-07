@@ -106,3 +106,23 @@
     gap: 4rem;
     padding: 1rem;
   }
+
+  @media (max-width: 1200px) {
+    .home-wrapper {
+      width: 100%;
+      padding: 0 10px;
+      margin-left: -10.3vh;
+      margin-top: -1.7vh;
+    }
+
+    .top-content {
+      text-align: center;
+      margin-left: 10vh;
+    }
+    
+    .playfair-display-1 {
+      margin-top: 8rem;
+      margin-right: 48rem;
+      font-size: 3.6rem;
+    }
+  }
