@@ -41,6 +41,8 @@
     margin-top: -3px;
     background-color: var(--background-color-6);
     border-radius: 5px;
+    height: 30px;
+    width: 30px;
 }
 
 
@@ -72,8 +74,19 @@
 
   @media (max-width: 1200px) {
     .sidebar {
-      width: 100%;
+      width: 250px;
+      height: 95vh;
       padding: 0 10px;
-      margin-right: -10vh;
+      margin-right: -8vh;
     }
+
+    .nav-icon {
+      height: 25px;
+      width: 25px;
+    }
+
+    .inter-1 {
+      margin-left: 20px;
+      font-size: 1.2rem;
+  }
   }

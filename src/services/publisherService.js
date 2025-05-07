@@ -1,6 +1,6 @@
 import axios from "./api";
 
-const Publishers = "/publishers";
+const Publishers = "http://localhost:8080/api/v1/publishers";
 
 export const getAllPublishers = () => axios.get(Publishers);
 export const getPublisherById = (id) => axios.get(`${Publishers}/${id}`);

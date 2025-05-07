@@ -90,5 +90,50 @@ select {
     padding: 7px;
 }
 
+@media (max-width:1200px) {
+    .b-form {
+        gap: 3px; 
+        width: 650px;
+        height: 140px;
+        margin-left: 20vh;
+        padding: 3px;
+    }
+
+    .b-form input {
+        width: 110px;
+        height: 25px;
+        padding: 4px 6px;
+        font-size: 0.9rem;
+    }
+
+    select {
+        width: 130px;
+        padding: 4px 6px;
+        font-size: 0.9rem;
+    }
+
+    .checkbox-group {
+        gap: 0.1rem;
+        font-size: 0.9rem;
+    }
+
+    .checkbox-group input {
+        height: 13px;
+        gap: 0.1rem;
+        font-size: 0.9rem;
+    }
+
+    .book-btn1 {
+        height: 30px;
+        width: 80px;
+        border-radius: 10px;
+        margin-left: 2vh;
+        margin-top: -2vh;
+        cursor: pointer;
+        font-size: 1rem;
+        color: white;
+    }
+}
+
 
 

@@ -12,7 +12,7 @@
   display: block;
 }
 
-/* Hover efekti */
+
 .book-card:hover {
   transform: scale(1.02);
   box-shadow: 1px 1px 15px rgb(0, 0, 0);
@@ -33,7 +33,7 @@
   color: #666;
 }
 
-/* Kapak-only görünüm */
+
 .book-card.cover-only {
   width: 200px;
   height: 300px;
@@ -44,4 +44,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media(max-width: 1200px) {
+  .book-card.cover-only {
+    width: 140px;
+    height: 210px;
+  }
 }

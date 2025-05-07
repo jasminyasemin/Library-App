@@ -1,6 +1,5 @@
 import React from 'react';
 import BookCard from '../components/BookCard';
-import CategoryCard from '../components/CategoryCard';
 import '../styles/Home.css';
 
 const Home = () => {
