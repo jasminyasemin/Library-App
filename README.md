@@ -1,12 +1,101 @@
-# React + Vite
+# 📚 The Library – Library Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured Library Management System built with **React** for the frontend and **Spring Boot** for the backend. The system allows users to **manage books, authors, categories, publishers, and rentals** with a clean UI and real-time feedback using **React Toastify**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Tech Stack
 
-## Expanding the ESLint configuration
+### 💻 Frontend
+- React 18
+- React Router DOM
+- Axios
+- React Toastify
+- CSS (Custom + Responsive)
+- Lordicon for animated sidebar icons
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🚀 Backend
+- Spring Boot (Java 17)
+- PostgreSQL
+- REST API
+- Docker + Docker Compose
+
+---
+
+## 🌟 Features
+
+### 🔍 Discover Page
+- Book cover UI
+- Search bar (functionality can be extended)
+- Responsive design with a visually engaging layout
+
+### 📁 Categories
+- List, create, update, and delete book categories
+- Form validation with feedback
+- Dynamic list rendering
+
+### 🖋 Authors
+- Manage author name, birthdate, and country
+- Editable and deletable entries
+- Date input handling with formatting
+
+### 🏢 Publishers
+- Handle publisher details including name, address, and year of establishment
+- Auto-trimming and input cleanup on form submission
+
+### 📘 Books
+- Complex form with dynamic dropdowns for author and publisher
+- Multi-category selection via checkboxes
+- CRUD operations with validation
+
+### 📄 Rentals
+- Add, update, or delete book borrowings
+- Return dates can be optionally added during update
+- Book and borrower linkage logic
+
+### 🧭 Navigation
+- Sidebar navigation using `NavLink`
+- Animated icons via Lordicon
+- Clean separation between routes
+
+---
+
+## 🗂 Project Structure
+
+```
+├── public/images           # Book cover images
+├── src/
+│   ├── components/         # Reusable components (Form, BookCard, Navbar)
+│   ├── layouts/            # MainLayout (sidebar + content area)
+│   ├── pages/              # Functional pages (Home, Books, Rentals, etc.)
+│   ├── services/           # Axios-based API calls
+│   ├── styles/             # All CSS files organized by component/page
+│   ├── App.jsx             # Routing setup
+│   ├── index.js            # Main render logic
+│   └── ...
+```
+---
+
+## 📦 API Base URL
+
+```js
+http://localhost:8080/api/v1
+```
+
+All services (books, authors, rentals...) follow standard REST patterns.
+
+---
+
+## 🎨 UI Highlights
+
+- **Playfair Display** and **Inter** fonts for elegant typography
+- Smooth hover effects and transitions
+- Shadowed cards and inputs for modern look
+
+---
+
+## 🙋‍♀️ Author
+
+**Jasmin Kıcıman**  
+Economics & Finance student | Full Stack Developer in training  
+Feel free to connect on [LinkedIn](https://www.linkedin.com)

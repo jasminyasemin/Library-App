@@ -1,18 +1,18 @@
 .book-container {
-    text-align: center;
+    text-align: center; /* Center-aligns the book section title */
 }
 
 .b-form {
-    display: flex;
-    gap: 8px; 
+    display: flex; /* Allows form fields to be laid out horizontally */
+    gap: 8px; /* Space between form elements */
     width: 800px;
     height: 120px;
     margin-left: 24vh;
     padding: 5px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px var(--background-color-5);
-    flex-wrap: wrap;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 1px 1px 10px var(--background-color-5); /* Subtle shadow */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .b-form input {
@@ -23,6 +23,7 @@
     text-align: left;
 }
 
+/* Styling for dropdowns (author/publisher) */
 select {
     padding: 8px 12px;
     border: 1px solid #ccc;
@@ -32,13 +33,15 @@ select {
     color: rgb(114, 113, 113);
 }
 
+/* Horizontal layout for categories */
 .checkbox-group {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 0.1rem;
     color: rgb(68, 68, 68);
 }
 
+/* Submit button styling */
 .book-btn1 {
     background-color: var(--background-color-3);
     border: none;
@@ -52,6 +55,7 @@ select {
     color: white;
 }
 
+/* Edit/Delete buttons for books */
 .book-btn {
     background-color: var(--background-color-3);
     border: none;
@@ -64,6 +68,7 @@ select {
     color: white;
 }
 
+/* Hover effect for submit button */
 .book-btn1:hover {
     background-color: var(--background-color-4);
     transition: 0.3s ease-in-out;
@@ -71,6 +76,7 @@ select {
     box-shadow: 1px 1px 10px var(--background-color-5);
 }
 
+/* Hover effect for edit/delete buttons */
 .book-btn:hover {
     background-color: var(--background-color-4);
     transition: 0.3s ease-in-out;
@@ -78,6 +84,7 @@ select {
     box-shadow: 1px 1px 10px var(--background-color-5);
 }
 
+/* Book list styling */
 .ul-3 {
     display: flex;
     flex-direction: column;
@@ -86,13 +93,15 @@ select {
     margin-left: 20vh;
 }
 
+/* Book list item spacing */
 .ul-3 li {
     padding: 7px;
 }
 
+/* Responsive adjustments for smaller screens */
 @media (max-width:1200px) {
     .b-form {
-        gap: 3px; 
+        gap: 2px;
         width: 650px;
         height: 140px;
         margin-left: 20vh;
@@ -108,32 +117,29 @@ select {
 
     select {
         width: 130px;
+        height: 35px;
         padding: 4px 6px;
         font-size: 0.9rem;
     }
 
     .checkbox-group {
-        gap: 0.1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         font-size: 0.9rem;
     }
 
     .checkbox-group input {
         height: 13px;
-        gap: 0.1rem;
         font-size: 0.9rem;
     }
 
     .book-btn1 {
         height: 30px;
-        width: 80px;
-        border-radius: 10px;
-        margin-left: 2vh;
+        width: 70px;
+        margin-left: 65vh;
         margin-top: -2vh;
-        cursor: pointer;
-        font-size: 1rem;
-        color: white;
     }
 }
-
 
 

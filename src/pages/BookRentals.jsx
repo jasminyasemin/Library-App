@@ -11,8 +11,13 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/BookRentals.css";
 
 const BookRental = () => {
+  // State for rental records
   const [rentals, setRentals] = useState([]);
+
+  // State for available books to rent
   const [books, setBooks] = useState([]);
+
+  // Form data for adding/updating a rental
   const [form, setForm] = useState({
     borrowerName: "",
     borrowerMail: "",
@@ -20,9 +25,11 @@ const BookRental = () => {
     returnDate: "",
     bookId: "",
   });
-  const [isEditing, setIsEditing] = useState(false);
-  const [selectedId, setSelectedId] = useState(null);
 
+  const [isEditing, setIsEditing] = useState(false); // Edit mode flag
+  const [selectedId, setSelectedId] = useState(null); // ID of rental being edited
+
+  // Fetch all rental records from API
   const fetchRentals = async () => {
     try {
       const res = await getAllRentals();
@@ -32,6 +39,7 @@ const BookRental = () => {
     }
   };
 
+  // Fetch all books from API
   const fetchBooks = async () => {
     try {
       const res = await getAllBooks();
@@ -41,11 +49,13 @@ const BookRental = () => {
     }
   };
 
+  // Load data on component mount
   useEffect(() => {
     fetchRentals();
     fetchBooks();
   }, []);
 
+  // Handles form submission for create or update
   const handleSubmit = async (e) => {
     e.preventDefault();
     const {
@@ -56,6 +66,7 @@ const BookRental = () => {
       bookId,
     } = form;
 
+    // Basic validation
     if (!borrowerName || !borrowerMail || !borrowingDate || !bookId) {
       toast.warning("Please fill in all fields.");
       return;
@@ -63,6 +74,7 @@ const BookRental = () => {
 
     try {
       if (isEditing) {
+        // Update rental record (returnDate can be optional)
         await updateRental(selectedId, {
           borrowerName,
           borrowingDate,
@@ -70,6 +82,7 @@ const BookRental = () => {
         });
         toast.success("The record has been updated.");
       } else {
+        // Create new rental record
         await createRental({
           borrowerName,
           borrowerMail,
@@ -81,6 +94,7 @@ const BookRental = () => {
         toast.success("New record added.");
       }
 
+      // Reset form and state after submission
       setForm({
         borrowerName: "",
         borrowerMail: "",
@@ -96,18 +110,20 @@ const BookRental = () => {
     }
   };
 
+  // Load form with rental data for editing
   const handleEdit = (r) => {
     setForm({
       borrowerName: r.borrowerName,
       borrowingDate: r.borrowingDate,
       returnDate: r.returnDate || "",
-      borrowerMail: r.borrowerMail || "", // sadece görsel için
+      borrowerMail: r.borrowerMail || "", // for display only
       bookId: r.book?.id || "",
     });
     setSelectedId(r.id);
     setIsEditing(true);
   };
 
+  // Delete a rental record
   const handleDelete = async (id) => {
     try {
       await deleteRental(id);
@@ -123,6 +139,7 @@ const BookRental = () => {
       <div className="rental-container">
         <h2 className="playfair-display-1">Book Rentals</h2>
 
+        {/* Rental form */}
         <form className="rental-form" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -135,7 +152,7 @@ const BookRental = () => {
             placeholder="Borrower Email"
             value={form.borrowerMail}
             onChange={(e) => setForm({ ...form, borrowerMail: e.target.value })}
-            disabled={isEditing} // update'te email değişmez
+            disabled={isEditing} // email is immutable during update
           />
           <input
             type="date"
@@ -153,7 +170,7 @@ const BookRental = () => {
           <select
             value={form.bookId}
             onChange={(e) => setForm({ ...form, bookId: e.target.value })}
-            disabled={isEditing}
+            disabled={isEditing} // book selection is disabled during update
           >
             <option value="">Select a Book</option>
             {books.map((b) => (
@@ -165,6 +182,7 @@ const BookRental = () => {
           <button className="r-btn" type="submit">{isEditing ? "Update" : "Add"}</button>
         </form>
 
+        {/* Display list of rental records */}
         <ul className="ul-4">
           {Array.isArray(rentals) &&
             rentals.map((r) => (
@@ -181,6 +199,7 @@ const BookRental = () => {
             ))}
         </ul>
 
+        {/* Toast notification area */}
         <ToastContainer position="bottom-right" />
       </div>
     </div>

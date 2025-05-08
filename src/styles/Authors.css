@@ -1,25 +1,48 @@
+/* Styles for the container holding the authors page */
 .author-container {
     text-align: center;
 }
 
+/* Styling for the author form */
 .a-form {
-    display: flex;
-    gap: 2px; 
+    display: flex; /* Arrange input fields side by side */
+    gap: 2px; /* Small gap between inputs */
     width: 750px;
     height: auto;
     margin-left: 24vh;
     padding: 5px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px var(--background-color-5);
-    flex-wrap: nowrap; 
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 1px 1px 10px var(--background-color-5); /* Soft shadow */
+    flex-wrap: nowrap;/* Prevents wrapping of input fields */
 }
 
+/* Input field styling */
 .a-input {
     padding: 2px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc;/* Light gray border */
     border-radius: 5px;
     font-size: 1rem;
     text-align: left;
-    color: rgb(100, 100, 100);
+    color: rgb(100, 100, 100);/* Soft gray text color */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width:1200px) {
+    .a-form {
+        gap: 5px;
+        width: 580px;
+        height: auto;
+        margin-left: 18vh;
+        padding: 4px;
+        background: white;
+    }
+
+    .a-input {
+        padding: 1px;
+        font-size: 0.9rem;
+        width: 120px;
+        height: 35px;
+        margin-top: 3px;
+    }
 }

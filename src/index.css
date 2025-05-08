@@ -1,15 +1,18 @@
+/* Import custom fonts from Google Fonts: Inter and Playfair Display */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500&display=swap');
 
+/* Define CSS variables for consistent theming across the app */
 :root {
-    --background-color-1: #f0efe9;
-    --background-color-2: #eae6d7;
-    --background-color-3: #1b3e39;
-    --background-color-4: #ff7653;
-    --background-color-5: rgb(145, 137, 137);
-    --background-color-6: #c5baba;
-    --text-color-1: #605f63;
+    --background-color-1: #f0efe9; /* Body background */
+    --background-color-2: #eae6d7; /* Section background */
+    --background-color-3: #1b3e39; /* Button & navbar base */
+    --background-color-4: #ff7653; /* Accent hover */
+    --background-color-5: rgb(145, 137, 137); /* Box shadows & outlines */
+    --background-color-6: #c5baba; /* Divider lines / sub accents */
+    --text-color-1: #605f63; /* Default text color */
 }
 
+/* Set default body style and font */
 body {
   background-color: var(--background-color-1);
   display: flex;
@@ -18,17 +21,19 @@ body {
   font-weight: 400 !important;
 }
 
+/* Utility class for large, stylized headings using Playfair Display */
 .playfair-display-1 {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-  }
+}
 
-  .inter-1 {
+/* Utility class for light text using Inter font */
+.inter-1 {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
-  }
+}
 
  

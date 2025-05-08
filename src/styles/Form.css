@@ -1,3 +1,4 @@
+/* Container for the category form */
 .c-form {
     display: flex;
     width: 680px;
@@ -10,14 +11,16 @@
     box-shadow: 1px 1px 10px var(--background-color-5);
 }
 
+/* Input fields inside the form */
 .form-input {
-    padding: 0.2rem 0.7rem;
-    border: none;
-    outline: none;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 1rem;
     text-align: center;
 }
 
+/* Submit button styling */
 .form-btn {
     background-color: var(--background-color-3);
     border: none;
@@ -30,20 +33,16 @@
     color: white;
 }
 
+/* Hover effect for the submit button */
 .form-btn:hover {
     background-color: var(--background-color-4);
     transition: 0.3s ease-in-out;
     transform: scale(1.05);
     box-shadow: 1px 1px 10px var(--background-color-5);
-  }
+}
 
-  .form-input + .form-input {
-    border-left: 1px solid var(--background-color-5);
-    padding-left: 1px;
-    margin-left: 27px;
-  }
-
-  @media(max-width:1200px) {
+/* Responsive styling for smaller screens */
+@media(max-width:1200px) {
     .c-form {
         width: 600px;
         height: 45px;
@@ -70,5 +69,4 @@
         font-size: 1rem;
         color: white;
     }
-  }
-  
+}

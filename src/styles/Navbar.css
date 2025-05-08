@@ -1,92 +1,100 @@
+/* Styles the sidebar container */
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    width: 350px;
-    height: 100vh;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    margin-left: 20vh;
-    margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 350px;
+  height: 100vh;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-left: 20vh;
+  margin-top: 2vh;
 }
 
+/* Title styling */
 .inter-1 {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
+/* Container for nav links */
 .nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-left: 10px;
 }
 
-
+/* Styles each navigation link */
 .nav-link {
-    display: flex;
-    flex-direction: row;
-    font-weight: bold;
-    color: var(--text-color-1);
-    text-decoration: none;
-    align-items: center;
-    font-size: 1.2rem;
-    gap: 6px;
-    overflow: hidden;
-    position: relative;
-    padding: 10px;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  color: var(--text-color-1);
+  text-decoration: none;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 6px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
 }
 
+/* Icon container within nav links */
 .nav-icon {
-    margin-top: -3px;
-    background-color: var(--background-color-6);
-    border-radius: 5px;
-    height: 30px;
-    width: 30px;
+  margin-top: -3px;
+  background-color: var(--background-color-6);
+  border-radius: 5px;
+  height: 30px;
+  width: 30px;
 }
 
+/* Text beside the icons, hidden by default */
+.nav-text {
+  max-width: 0;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.5s ease;
+}
 
-  .nav-text {
-    max-width: 0;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.5s ease;
-  }
-  
-  .nav-link:hover .nav-text {
-    max-width: 150px;
-    opacity: 1;
-    transform: translateX(0);
-    color: var(--background-color-4);
-  }
+/* On hover, show the text with animation */
+.nav-link:hover .nav-text {
+  max-width: 150px;
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--background-color-4);
+}
 
-  .nav-icon:hover {
-    background-color: var(--background-color-4);
-  }
+/* On hover, change the background color of the icon */
+.nav-icon:hover {
+  background-color: var(--background-color-4);
+}
 
-  .line {
-    background-color: var(--background-color-6);
-    width: 13vh;
-    height: 0.1px;
-    margin-top: -1vh;
-    margin-bottom: -1vh;
-  }
+/* A horizontal line separating main and support sections */
+.line {
+  background-color: var(--background-color-6);
+  width: 13vh;
+  height: 0.1px;
+  margin-top: -1vh;
+  margin-bottom: -1vh;
+}
 
-  @media (max-width: 1200px) {
-    .sidebar {
+/* Responsive styles for smaller screens */
+@media (max-width: 1200px) {
+  .sidebar {
       width: 250px;
       height: 95vh;
       padding: 0 10px;
       margin-right: -8vh;
-    }
+  }
 
-    .nav-icon {
+  .nav-icon {
       height: 25px;
       width: 25px;
-    }
+  }
 
-    .inter-1 {
+  .inter-1 {
       margin-left: 20px;
       font-size: 1.2rem;
   }
-  }
+}

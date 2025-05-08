@@ -1,7 +1,9 @@
+/* Main container for the publisher page */
 .publisher-container {
     text-align: center;
 }
 
+/* Form styling for publisher add/update */
 .p-form {
     display: flex;
     width: 950px;
@@ -14,6 +16,7 @@
     box-shadow: 1px 1px 10px var(--background-color-5);
 }
 
+/* List container for displaying publishers */
 .ul-2 {
     list-style: none;
     display: flex;
@@ -22,4 +25,24 @@
     gap: 1.5rem;
     margin-left: 20vh;
     margin-top: 4vh;
+}
+
+/* Responsive adjustments for smaller screens */
+@media(max-width:1200px) {
+    .p-form {
+        width: 650px;
+        height: 48px;
+        margin-left: 15vh;
+        overflow: hidden;
+        gap: 4px;
+        padding: 2px;
+    } 
+
+    /* Adjust input fields inside the form on small screens */
+    .p-form input {
+        padding: 1px;
+        width: 145px;
+        height: 37px;
+        margin-top: 3px;
+    }
 }

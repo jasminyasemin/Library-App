@@ -1,7 +1,9 @@
+/* Container for rental page content */
 .rental-container {
     text-align: center;
 }
 
+/* Main form styling for rentals */
 .rental-form {
     display: flex;
     gap: 8px; 
@@ -15,6 +17,7 @@
     flex-wrap: wrap;
 }
 
+/* Input fields in the form */
 .rental-form input {
     padding: 2px;
     border: 1px solid #ccc;
@@ -24,6 +27,7 @@
     color: rgb(107, 107, 107);
 }
 
+/* Main submit button */
 .r-btn {
     background-color: var(--background-color-3);
     border: none;
@@ -36,6 +40,7 @@
     color: white;
 }
 
+/* Edit/Delete button styles */
 .r-btn1 {
     background-color: var(--background-color-3);
     border: none;
@@ -48,6 +53,7 @@
     margin: 2px;
 }
 
+/* List of rental records */
 .ul-4 {
     display: flex;
     flex-direction: column;
@@ -59,4 +65,36 @@
 
 .ul-4 li {
     padding: 7px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width:1200px) {
+    .rental-form {
+        gap: 3px; 
+        width: 700px;
+        height: 40px;
+        margin-left: 10vh;
+        padding: 3px;
+        background: white;
+        flex-wrap: wrap;
+    }
+
+    .rental-form input {
+        padding: 1px;
+        font-size: 0.9rem;
+        width: 110px;
+        height: 31px;
+        margin-top: 3px;
+    }
+
+    .rental-form select {
+        margin-top: 3px;
+        width: 126px;
+    }
+
+    .r-btn {
+        height: 35px;
+        width: 75px;
+        margin-top: 3px;
+    }
 }

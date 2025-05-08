@@ -1,4 +1,5 @@
 .book-card {
+  /* Basic card styling with fixed width and rounded corners */
   width: 200px;
   flex-shrink: 0;
   border-radius: 10px;
@@ -7,33 +8,37 @@
 }
 
 .book-card img {
+  /* Makes the image responsive and removes any spacing issues */
   width: 100%;
   height: auto;
   display: block;
 }
 
-
 .book-card:hover {
+  /* Slight zoom effect and shadow on hover */
   transform: scale(1.02);
   box-shadow: 1px 1px 15px rgb(0, 0, 0);
 }
 
 .book-info {
+  /* Container for book title and author info */
   padding: 0.5rem;
   text-align: center;
 }
 
 .book-info h3 {
+  /* Book title styling */
   font-size: 1rem;
   margin: 0;
 }
 
 .book-info p {
+  /* Author name styling */
   font-size: 0.85rem;
   color: #666;
 }
 
-
+/* Special styling when only the book cover is displayed */
 .book-card.cover-only {
   width: 200px;
   height: 300px;
@@ -41,12 +46,14 @@
 }
 
 .book-card.cover-only img {
+  /* Ensures the cover fills the entire card space */
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 @media(max-width: 1200px) {
+  /* Responsive adjustments for smaller screens */
   .book-card.cover-only {
     width: 140px;
     height: 210px;

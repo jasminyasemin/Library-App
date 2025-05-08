@@ -1,151 +1,159 @@
+/* Main wrapper for the home page layout */
 .home-wrapper {
-    height: 100vh;
-    width: 130vh;
-    margin-left: -26.466vh;
-    margin-top: -1.2vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
+  height: 100vh;
+  width: 130vh;
+  margin-left: -26.466vh; /* Custom positioning to center layout */
+  margin-top: -1.2vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  .home-top {
-    flex: 0 0 45vh;
-    height: 55vh;
-    background-color: var(--background-color-2); 
-    border-bottom-left-radius: 50px;
-    border-top-right-radius: 50px;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .top-content {
-    text-align: center;
-  }
-  
-  .playfair-display-1 {
-    margin-top: 8rem;
-    margin-right: 48rem;
-    font-size: 3.6rem;
-  }
-  
+/* Top section with background, rounded corners, and central content */
+.home-top {
+  flex: 0 0 45vh;
+  height: 55vh;
+  background-color: var(--background-color-2); 
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
 
-  .search-bar {
-    display: flex;
-    width: 650px;
-    height: 50px;
-    margin-left: 1.7vh;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    border: none;
-    box-shadow: 1px 1px 10px var(--background-color-5);
-  }
-  
-  .search-bar input {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .search-bar button {
-    background-color: var(--background-color-3);
-    border: none;
-    height: 35px;
-    width: 100px;
-    border-radius: 10px;
-    margin: 7px 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    color: white;
-  }
+/* Centers the heading and search bar */
+.top-content {
+  text-align: center;
+}
 
-  button:hover {
-    background-color: var(--background-color-4);
-    transition: 0.3s ease-in-out;
-    transform: scale(1.05);
-    box-shadow: 1px 1px 10px var(--background-color-5);
-  }
-  
-  
-  .home-bottom {
-    flex: 1;
-    background-color: white;
-    padding: 2rem;
-    margin-top: -40px;
-    z-index: 0;
-    position: relative;
-    border-bottom-right-radius: 50px;
-  }
-  
-  .section-title {
-    margin-top: 4rem;
-    margin-right: 49rem;
-    font-weight: 210;
-    font-size: 1.16rem;
-  }
-  
-  
-  .carousel-wrapper {
-    position: relative;
-    top: 5px; 
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-  }
+/* Custom heading styling */
+.playfair-display-1 {
+  margin-top: 8rem;
+  margin-right: 48rem;
+  font-size: 3.6rem;
+}
 
-  
-  .carousel {
-    display: flex;
-    gap: 4rem;
-    padding: 1rem;
-  }
+/* Container for the search input and button */
+.search-bar {
+  display: flex;
+  width: 650px;
+  height: 50px;
+  margin-left: 1.7vh;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 1px 1px 10px var(--background-color-5);
+}
 
-  @media (max-width: 1200px) {
-    .home-wrapper {
+/* Search input field */
+.search-bar input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Search button styling */
+.search-bar button {
+  background-color: var(--background-color-3);
+  border: none;
+  height: 35px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 7px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+}
+
+/* Hover effect for all buttons */
+button:hover {
+  background-color: var(--background-color-4);
+  transition: 0.3s ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 1px 1px 10px var(--background-color-5);
+}
+
+/* Bottom section of the home layout (currently empty) */
+.home-bottom {
+  flex: 1;
+  background-color: white;
+  padding: 2rem;
+  margin-top: -40px;
+  z-index: 0;
+  position: relative;
+  border-bottom-right-radius: 50px;
+}
+
+/* Subheading before the carousel */
+.section-title {
+  margin-top: 4rem;
+  margin-right: 49rem;
+  font-weight: 210;
+  font-size: 1.16rem;
+}
+
+/* Outer container for the carousel section */
+.carousel-wrapper {
+  position: relative;
+  top: 5px; 
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+/* Flex container holding the book cards horizontally */
+.carousel {
+  display: flex;
+  gap: 4rem;
+  padding: 1rem;
+}
+
+/* Responsive adjustments for smaller screen sizes */
+@media (max-width: 1200px) {
+  .home-wrapper {
       width: 100%;
       height: 95vh;
       padding: 0 10px;
       margin-left: -24.6vh;
       margin-top: -2vh;
-    }
+  }
 
-    .home-top {
+  .home-top {
       height: 50vh;
-    }
+  }
 
-    .top-content {
+  .top-content {
       text-align: center;
       margin-right: 3vh;
-    }
-    
-    .playfair-display-1 {
+  }
+
+  .playfair-display-1 {
       margin-top: 6rem;
       margin-right: 25rem;
       font-size: 3.2rem;
-    }
+  }
 
-    .search-bar {
+  .search-bar {
       width: 600px;
       height: 45px;
       margin-left: 11.5vh;
-    }
+  }
 
-    .search-bar button {
+  .search-bar button {
       height: 30px;
       width: 90px;
-    }
+  }
 
-    .section-title {
+  .section-title {
       margin-top: 3rem;
       margin-right: 24rem;
       font-weight: 210;
       font-size: 1.1rem;
-    }
   }
+}

@@ -1,9 +1,11 @@
+/* Container layout that arranges sidebar and content side by side */
 .layout {
   display: flex;
 }
 
+/* Main content section beside the sidebar */
 .content {
-  margin-left: 220px;
-  padding: 2rem;
-  width: 100%;
+  margin-left: 220px; /* Space for the sidebar */
+  padding: 2rem;      /* Adds spacing inside the content */
+  width: 100%;        /* Takes full remaining width */
 }

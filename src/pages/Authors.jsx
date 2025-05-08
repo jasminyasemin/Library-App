@@ -10,15 +10,23 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/Authors.css";
 
 const Authors = () => {
+  // State for the list of authors
   const [authors, setAuthors] = useState([]);
+
+  // State for the form inputs
   const [form, setForm] = useState({
     name: "",
     birthDate: "",
     country: "",
   });
+
+  // State to track editing mode
   const [isEditing, setIsEditing] = useState(false);
+
+  // State to store the ID of the author being edited
   const [selectedId, setSelectedId] = useState(null);
 
+  // Fetches all authors from the backend
   const fetchAuthors = async () => {
     try {
       const res = await getAllAuthors();
@@ -29,12 +37,16 @@ const Authors = () => {
     }
   };
 
+  // Calls fetchAuthors only once when the component mounts
   useEffect(() => {
     fetchAuthors();
   }, []);
 
+  // Handles form submission for both add and update actions
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validation: All fields must be filled
     if (!form.name || !form.birthDate || !form.country) {
       toast.warning("Please fill in all fields.");
       return;
@@ -42,12 +54,16 @@ const Authors = () => {
 
     try {
       if (isEditing) {
+        // Update existing author
         await updateAuthor(selectedId, form);
         toast.success("Author updated.");
       } else {
+        // Create new author
         await createAuthor(form);
         toast.success("Author added.");
       }
+
+      // Reset form after submission
       setForm({ name: "", birthDate: "", country: "" });
       setIsEditing(false);
       fetchAuthors();
@@ -56,6 +72,7 @@ const Authors = () => {
     }
   };
 
+  // Populates the form with selected author's data for editing
   const handleEdit = (author) => {
     setForm({
       name: author.name || "",
@@ -66,6 +83,7 @@ const Authors = () => {
     setIsEditing(true);
   };
 
+  // Deletes the selected author
   const handleDelete = async (id) => {
     try {
       await deleteAuthor(id);
@@ -81,6 +99,7 @@ const Authors = () => {
       <div className="author-container">
         <h2 className="playfair-display-1">Authors</h2>
 
+        {/* Form to add or edit authors */}
         <form className="a-form" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -108,6 +127,7 @@ const Authors = () => {
           </button>
         </form>
 
+        {/* Display list of authors with edit/delete buttons */}
         <ul className="ul-2">
           {authors.map((a) => (
             <li key={a.id}>
@@ -122,6 +142,7 @@ const Authors = () => {
           ))}
         </ul>
 
+        {/* Toast notification container */}
         <ToastContainer position="bottom-right" />
       </div>
     </div>

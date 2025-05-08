@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/Publishers.css";
 
 const Publishers = () => {
+  // State variables
   const [publishers, setPublishers] = useState([]);
   const [form, setForm] = useState({
     name: "",
@@ -19,6 +20,7 @@ const Publishers = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
+  // Fetch publishers on component mount
   const fetchPublishers = async () => {
     try {
       const res = await getAllPublishers();
@@ -33,30 +35,36 @@ const Publishers = () => {
     fetchPublishers();
   }, []);
 
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, establishmentYear, address } = form;
-  
+
+    // Check for empty fields
     if (!name || !establishmentYear || !address) {
       toast.warning("Please fill in all fields.");
       return;
     }
-  
+
+    // Prepare data to send to API
+    const dataToSend = {
+      name: name.trim(),
+      address: address.trim() || "Address not specified",
+      establishmentYear: parseInt(establishmentYear),
+    };
+
     try {
-      const dataToSend = {
-        name: name.trim(),
-        address: address.trim() || "Address not specified", 
-        establishmentYear: parseInt(establishmentYear),
-      };
-  
       if (isEditing) {
+        // Update existing publisher
         await updatePublisher(selectedId, dataToSend);
         toast.success("Publisher updated.");
       } else {
+        // Create new publisher
         await createPublisher(dataToSend);
         toast.success("Publisher added.");
       }
-  
+
+      // Reset form and refresh data
       setForm({ name: "", establishmentYear: "", address: "" });
       setIsEditing(false);
       fetchPublishers();
@@ -66,6 +74,7 @@ const Publishers = () => {
     }
   };
 
+  // Set form to selected publisher's data for editing
   const handleEdit = (publisher) => {
     setForm({
       name: publisher.name || "",
@@ -76,6 +85,7 @@ const Publishers = () => {
     setIsEditing(true);
   };
 
+  // Delete selected publisher
   const handleDelete = async (id) => {
     try {
       await deletePublisher(id);
@@ -91,48 +101,50 @@ const Publishers = () => {
       <div className="publisher-container">
         <h2 className="playfair-display-1">Publishers</h2>
 
+        {/* Form for adding/updating publisher */}
         <form className="p-form" onSubmit={handleSubmit}>
-  <input
-    id="publisher-name"
-    name="name"
-    type="text"
-    className="form-input"
-    placeholder="Publisher Name"
-    value={form.name}
-    onChange={(e) => setForm({ ...form, name: e.target.value })}
-  />
+          <input
+            id="publisher-name"
+            name="name"
+            type="text"
+            className="form-input"
+            placeholder="Publisher Name"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
 
-  <input
-    id="publisher-year"
-    name="establishmentYear"
-    type="number"
-    className="form-input"
-    placeholder="Establishment Year"
-    value={form.establishmentYear}
-    onChange={(e) =>
-      setForm({ ...form, establishmentYear: e.target.value })
-    }
-  />
+          <input
+            id="publisher-year"
+            name="establishmentYear"
+            type="number"
+            className="form-input"
+            placeholder="Establishment Year"
+            value={form.establishmentYear}
+            onChange={(e) =>
+              setForm({ ...form, establishmentYear: e.target.value })
+            }
+          />
 
-  <input
-    id="publisher-address"
-    name="address"
-    type="text"
-    className="form-input"
-    placeholder="Address"
-    value={form.address}
-    onChange={(e) => setForm({ ...form, address: e.target.value })}
-  />
-  
-  <button className="form-btn" type="submit">
-    {isEditing ? "Update" : "Add"}
-  </button>
-</form>
+          <input
+            id="publisher-address"
+            name="address"
+            type="text"
+            className="form-input"
+            placeholder="Address"
+            value={form.address}
+            onChange={(e) => setForm({ ...form, address: e.target.value })}
+          />
 
+          <button className="form-btn" type="submit">
+            {isEditing ? "Update" : "Add"}
+          </button>
+        </form>
+
+        {/* List of all publishers */}
         <ul className="ul-2">
           {publishers.map((p) => (
             <li key={p.id}>
-              <strong>{p.name}</strong> — {p.establishmentYear}, {p.address} {/* p.address görünmüyor çünkü API yanıtında bu alan yok */}
+              <strong>{p.name}</strong> — {p.establishmentYear}, {p.address}
               <button className="edit-btn" onClick={() => handleEdit(p)}>
                 Edit
               </button>
