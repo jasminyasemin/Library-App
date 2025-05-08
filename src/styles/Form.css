@@ -18,6 +18,10 @@
     border-radius: 5px;
     font-size: 1rem;
     text-align: center;
+    height: 35px;
+    width: 150px;
+    margin-top: 3px;
+    margin-left: 3px;
 }
 
 /* Submit button styling */
@@ -56,6 +60,8 @@
 
     .form-input {
         padding: 0.1rem 0.1rem;
+        height: 30px;
+        margin-top: 4px;
     }
 
     .form-btn {
