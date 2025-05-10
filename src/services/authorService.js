@@ -1,7 +1,8 @@
-import axios from "axios";
+// Import the custom axios instance with the base URL
+import axios from "./api";
 
-// Base endpoint for all author-related API requests
-const Authors = "http://localhost:8080/api/v1/authors";
+// Relative path for author-related API endpoints
+const Authors = "/authors";
 
 // Retrieves the full list of authors from the backend
 export const getAllAuthors = () => axios.get(Authors);
