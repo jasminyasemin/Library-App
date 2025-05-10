@@ -6,7 +6,7 @@
 /* Form styling for publisher add/update */
 .p-form {
     display: flex;
-    width: 950px;
+    width: 700px;
     height: 50px;
     margin-left: 15vh;
     background: white;
@@ -41,7 +41,7 @@
     /* Adjust input fields inside the form on small screens */
     .p-form input {
         padding: 1px;
-        width: 145px;
+        width: 150px;
         height: 37px;
         margin-top: 3px;
     }

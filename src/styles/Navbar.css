@@ -10,6 +10,11 @@
   border-bottom-left-radius: 30px;
   margin-left: 20vh;
   margin-top: 2vh;
+  box-shadow: 
+  -4px 0px 8px var(--background-color-7),   /* left */
+  0px -4px 8px var(--background-color-7),   /* top */
+  0px 4px 8px var(--background-color-7);    /* bottom */
+  
 }
 
 /* Title styling */

@@ -3,7 +3,7 @@
   height: 100vh;
   width: 130vh;
   margin-left: -26.466vh; /* Custom positioning to center layout */
-  margin-top: -1.2vh;
+  margin-top: -1.3vh;
   display: flex;
   flex-direction: column;
 }
@@ -15,6 +15,9 @@
   background-color: var(--background-color-2); 
   border-bottom-left-radius: 50px;
   border-top-right-radius: 50px;
+  box-shadow: 
+  0px -4px 8px var(--background-color-7),  /* top */
+  4px 0px 8px var(--background-color-7);   /* right */
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -88,6 +91,9 @@ button:hover {
   z-index: 0;
   position: relative;
   border-bottom-right-radius: 50px;
+  box-shadow: 
+  4px 0px 8px var(--background-color-7),   /* right */
+  0px 4px 8px var(--background-color-7);   /* bottom */
 }
 
 /* Subheading before the carousel */
@@ -117,7 +123,7 @@ button:hover {
 /* Responsive adjustments for smaller screen sizes */
 @media (max-width: 1200px) {
   .home-wrapper {
-      width: 100%;
+      width: 110vh;
       height: 95vh;
       padding: 0 10px;
       margin-left: -24.6vh;

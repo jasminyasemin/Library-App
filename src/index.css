@@ -9,6 +9,7 @@
     --background-color-4: #ff7653; /* Accent hover */
     --background-color-5: rgb(145, 137, 137); /* Box shadows & outlines */
     --background-color-6: #c5baba; /* Divider lines / sub accents */
+    --background-color-7: rgb(173, 173, 173);
     --text-color-1: #605f63; /* Default text color */
 }
 
@@ -19,6 +20,7 @@ body {
   justify-content: center;
   font-family: "Inter", sans-serif !important;
   font-weight: 400 !important;
+  max-height: 804px;
 }
 
 /* Utility class for large, stylized headings using Playfair Display */
