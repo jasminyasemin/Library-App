@@ -32,7 +32,7 @@ const Navbar = () => {
         {/* Link to Books */}
         <NavLink to="/books" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
           <lord-icon class="nav-icon" src="https://cdn.lordicon.com/zyzoecaw.json" trigger="morph" state="morph-book" colors="primary:#ffffff" />
-          <span className="nav-text">Library</span>
+          <span className="nav-text">Books</span>
         </NavLink>
 
         {/* Link to Rentals */}
