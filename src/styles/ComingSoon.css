@@ -1,0 +1,37 @@
+.swing-img {
+  /* Positioning and sizing */
+  margin-top: 6vh;
+  margin-left: 35vh;
+  height: 450px;
+  width: 530px;
+
+  /* Ensures it's displayed properly */
+  display: inline-block;
+
+  /* Smooth swinging animation applied infinitely */
+  animation: swing 2.5s ease-in-out infinite;
+
+  /* Makes it swing from the top center */
+  transform-origin: top center;
+
+  /* Enhances visual clarity of the image */
+  filter: contrast(120%) saturate(120%);
+}
+
+/* Keyframes for swing animation */
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(7deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .swing-img {
+    height: 350px;
+    width: 450px;
+    margin-left: 25vh;
+  }
+}

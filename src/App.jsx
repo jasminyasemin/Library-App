@@ -6,6 +6,7 @@ import Publishers from './pages/Publishers';
 import Authors from './pages/Authors';
 import Books from './pages/Books';
 import BookRentals from './pages/BookRentals';
+import ComingSoon from './pages/ComingSoon';
 
 const App = () => {
   return (
@@ -25,6 +26,9 @@ const App = () => {
         <Route path="books" element={<Books />} />
         {/* Route for the Book Rentals (borrowed books) page */}
         <Route path="rentals" element={<BookRentals />} />
+        <Route path="favorites" element={<ComingSoon />} />
+        <Route path="settings" element={<ComingSoon />} />
+        <Route path="help" element={<ComingSoon />} />
       </Route>
     </Routes>
   );

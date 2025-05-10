@@ -58,12 +58,17 @@ A full-featured Library Management System built with **React** for the frontend 
 - Animated icons via Lordicon
 - Clean separation between routes
 
+### 🚧 Coming Soon Pages
+- Placeholder pages for "Favorites", "Settings", and "Help"
+- Includes a **smoothly swinging image** animation for visual feedback
+- Enhances UX by showing these features are in progress
+
 ---
 
 ## 🗂 Project Structure
 
 ```
-├── public/images           # Book cover images
+├── public/images           # Book cover images and comingsoon.png
 ├── src/
 │   ├── components/         # Reusable components (Form, BookCard, Navbar)
 │   ├── layouts/            # MainLayout (sidebar + content area)
@@ -74,6 +79,7 @@ A full-featured Library Management System built with **React** for the frontend 
 │   ├── index.js            # Main render logic
 │   └── ...
 ```
+
 ---
 
 ## 📦 API Base URL
@@ -91,6 +97,7 @@ All services (books, authors, rentals...) follow standard REST patterns.
 - **Playfair Display** and **Inter** fonts for elegant typography
 - Smooth hover effects and transitions
 - Shadowed cards and inputs for modern look
+- Visually enhanced "Coming Soon" with subtle animation
 
 ---
 
@@ -98,4 +105,4 @@ All services (books, authors, rentals...) follow standard REST patterns.
 
 **Jasmin Kıcıman**  
 Economics & Finance student | Full Stack Developer in training  
-Feel free to connect on [LinkedIn](https://www.linkedin.com)
+Feel free to connect on [LinkedIn](https://www.linkedin.com/in/jasminyaseminkıcıman-2a4479348/)

@@ -3,7 +3,7 @@
   height: 100vh;
   width: 130vh;
   margin-left: -26.466vh; /* Custom positioning to center layout */
-  margin-top: -1.3vh;
+  margin-top: -1.35vh;
   display: flex;
   flex-direction: column;
 }

@@ -14,7 +14,6 @@
   -4px 0px 8px var(--background-color-7),   /* left */
   0px -4px 8px var(--background-color-7),   /* top */
   0px 4px 8px var(--background-color-7);    /* bottom */
-  
 }
 
 /* Title styling */
@@ -72,6 +71,18 @@
 
 /* On hover, change the background color of the icon */
 .nav-icon:hover {
+  background-color: var(--background-color-4);
+}
+
+/* Active nav link styling — keeps hover-like style when selected */
+.nav-link.active .nav-text {
+  max-width: 150px;
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--background-color-4);
+}
+
+.nav-link.active .nav-icon {
   background-color: var(--background-color-4);
 }
 
