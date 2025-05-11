@@ -1,6 +1,13 @@
 # 📚 The Library – Library Management System
 
 A full-featured Library Management System built with **React** for the frontend and **Spring Boot** for the backend. The system allows users to **manage books, authors, categories, publishers, and rentals** with a clean UI and real-time feedback using **React Toastify**.
+---
+## 🌐 Live Demo
+
+You can access the live version of the Library Management System here:  
+🔗 [Open Live Site](https://library07.vercel.app)
+
+> Note: Backend is hosted separately and connected — all features (CRUD operations) are functional.
 
 ---
 
